@@ -1,17 +1,9 @@
 // 项目入口文件
-//类导入一般大写
-const Koa = require ('koa')
- 
-const app = new Koa()
+const {APP_POST} = require('./config/config.default')
+const app = require('./app')
 
-//中间件
-//ctx记录了所有http的上下文 context
-//可以使用node src/main.js运行  
-app.use((ctx,next)=>{
-    ctx.body = 'hello api'
 
-})
-
-app.listen(3000,()=>{
-    console.log('server is running on http://localhost:3000')
+//端口去配置，不要写死，用
+app.listen(APP_POST,()=>{
+    console.log(`server is running on http://localhost:${APP_POST}`) 
 })
